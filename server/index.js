@@ -5,8 +5,9 @@ const multer = require("multer");
 const path = require("path");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 require("dotenv").config();
+
 const app = express();
-const port = 8000;
+const port = 8000; // This will not be used in serverless
 
 app.use(express.json());
 app.use(cors());
@@ -44,7 +45,7 @@ async function run() {
     const animalCollection = database.collection("animals");
     const categoryCollection = database.collection("categories");
 
-    console.log("successfully connected to MongoDB!");
+    console.log("Successfully connected to MongoDB!");
 
     app.get("/api/animals", async (req, res) => {
       try {
@@ -139,9 +140,5 @@ async function run() {
 }
 
 run().catch(console.dir);
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 module.exports.handler = serverless(app);
