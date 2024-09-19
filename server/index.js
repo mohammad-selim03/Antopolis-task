@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const serverless = require('serverless-http');
 const multer = require("multer");
 const path = require("path");
 const { MongoClient, ServerApiVersion } = require("mongodb");
@@ -142,3 +143,5 @@ run().catch(console.dir);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports.handler = serverless(app);
