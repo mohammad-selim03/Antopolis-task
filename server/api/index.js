@@ -6,7 +6,7 @@ const path = require("path");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 require("dotenv").config();
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 app.use(express.json());
 app.use(cors());
@@ -44,7 +44,7 @@ async function run() {
     const animalCollection = database.collection("animals");
     const categoryCollection = database.collection("categories");
 
-    console.log("Successfully connected to MongoDB!");
+    console.log("successfully connected to MongoDB!");
 
     app.get("/api/animals", async (req, res) => {
       try {
@@ -140,5 +140,7 @@ async function run() {
 
 run().catch(console.dir);
 
-// Export the app wrapped in serverless-http for Vercel
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 module.exports.handler = serverless(app);
