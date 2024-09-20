@@ -46,7 +46,7 @@ async function run() {
 
     console.log("successfully connected to MongoDB!");
 
-    app.get("/api/animals", async (req, res) => {
+    app.get("/animals", async (req, res) => {
       try {
         const animals = await animalCollection.find({}).toArray();
         res.status(200).json(animals);
@@ -56,7 +56,7 @@ async function run() {
       }
     });
 
-    app.get("/api/categories", async (req, res) => {
+    app.get("/categories", async (req, res) => {
       try {
         const categories = await categoryCollection.find({}).toArray();
         res.status(200).json(categories);
@@ -66,7 +66,7 @@ async function run() {
       }
     });
 
-    app.post("/api/animals", upload.single("image"), async (req, res) => {
+    app.post("/animals", upload.single("image"), async (req, res) => {
       try {
         const { name } = req.body;
         const image = req.file;
@@ -99,7 +99,7 @@ async function run() {
       }
     });
 
-    app.post("/api/categories", async (req, res) => {
+    app.post("/categories", async (req, res) => {
       try {
         const { name } = req.body;
 
