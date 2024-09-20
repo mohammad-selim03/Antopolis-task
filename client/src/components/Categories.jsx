@@ -10,7 +10,7 @@ const Categories = () => {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await fetch("http://localhost:8000/api/categories");
+        const response = await fetch("https://antopolis-task-five.vercel.app/categories");
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -30,7 +30,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/animals");
+        const response = await fetch("https://antopolis-task-five.vercel.app/animals");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -72,7 +72,7 @@ const Categories = () => {
           <div  key={index}>
             <div className="w-64 h-64 border rounded-lg shadow-md">
             <img
-              src={`http://localhost:8000${animal.image.path}`}
+              src={`https://antopolis-task-five.vercel.app${animal.image.path}`}
               alt={animal.name}
               className="animal-image rounded-lg w-64 h-64"
             />

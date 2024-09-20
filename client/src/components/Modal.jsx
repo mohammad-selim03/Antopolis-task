@@ -16,7 +16,7 @@ const Modal = () => {
     formData.append("image", animalImage);
 
     try {
-      const response = await fetch("http://localhost:8000/api/animals", {
+      const response = await fetch("https://antopolis-task-five.vercel.app/animals", {
         method: "POST",
         body: formData,
       });
@@ -37,7 +37,7 @@ const Modal = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/api/categories", {
+      const response = await fetch("https://antopolis-task-five.vercel.app/categories", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: categoryName }),
